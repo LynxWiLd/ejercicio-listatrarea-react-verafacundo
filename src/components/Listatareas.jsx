@@ -1,7 +1,7 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import Items from './Items';
 
-function Listatareas() {
+const Listatareas = () => {
   return (
     <ListGroup>
       <Items></Items>
