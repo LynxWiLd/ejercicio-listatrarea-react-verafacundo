@@ -19,6 +19,12 @@ const Formulario = () => {
     setTarea("");
   };
 
+  const borrarTarea = (tareaABorrar) => {
+    const nuevasTareas = arrayTareas.filter(todo => todo !== tareaABorrar);
+    //actualizar el estado con las nuevas tareas
+    setArrayTareas(nuevasTareas);
+  }
+
   return (
     <section className="container mt-4 p-4 border rounded shadow bg-dark text-white ">
       <h1 className="text-center">Bienvenidos</h1>
@@ -37,7 +43,7 @@ const Formulario = () => {
           </div>
         </Form.Group>
       </Form>
-      <Listatareas arrayTareas={arrayTareas}></Listatareas>
+      <Listatareas arrayTareas={arrayTareas} borrarTarea={borrarTarea}></Listatareas>
     </section>
   );
 };
