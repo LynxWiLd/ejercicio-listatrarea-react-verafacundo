@@ -9,7 +9,13 @@ const Formulario = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setArrayTareas([...arrayTareas, tarea]);
+    //Verificar que la tarea no exista ya en el array
+    const tareaExiste = arrayTareas.find(todo => todo.toLowerCase() === tarea.toLowerCase().trim());
+    if (tareaExiste) {
+      alert("La tarea ya existe");
+      return;
+    }
+    setArrayTareas([...arrayTareas, tarea.trim()]); //Agregar la nueva tarea sin espacios al array
     setTarea("");
   };
 
@@ -31,7 +37,7 @@ const Formulario = () => {
           </div>
         </Form.Group>
       </Form>
-      <Listatareas></Listatareas>
+      <Listatareas arrayTareas={arrayTareas}></Listatareas>
     </section>
   );
 };
